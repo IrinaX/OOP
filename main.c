@@ -11,6 +11,7 @@ typedef struct List {
     struct Item *pHead;
 } list;
 
+//todo: getIndex
 void addListItem(list *myList, item *listItem);
 
 void printList(list *myList);
@@ -29,6 +30,8 @@ void clearList(list *myList);
 
 void insertItem(list *myList, item *newItem, int index);
 
+int getIndex(list *myList, item *listItem);
+
 int main() {
     //creating empty list
     item *listItem = NULL;
@@ -40,7 +43,7 @@ int main() {
     myList->pHead = 0;
     myList->pTail = 0;
     int variant = 0;
-    while (variant <= 7) {
+    while (variant <= 8) {
         printMenu();
         scanf("%d", &variant);
         switch (variant) {
@@ -59,7 +62,20 @@ int main() {
                 printf("\namountOfItems = %d\n", amountOfItems);
                 break;
             }
-            case 3: {//Get item by index
+            case 3: {//Insert item
+                if (myList->pHead == NULL) {//если начальный эл-т отсутствует, то список пуст
+                    printf("\nList is empty.\n");
+                } else {
+                    int index = 0;
+                    item *newItem = malloc(sizeof(item));
+                    printf("\nEnter index of element: ");
+                    scanf("%d", &index);
+                    insertItem(myList, newItem, index);
+                    printf("\nNew item was inserted successfully!\n");
+                }
+                break;
+            }
+            case 4: {//Get item by index
                 if (myList->pHead == NULL) {//если начальный эл-т отсутствует, то список пуст
                     printf("\nList is empty.\n");
                 } else {
@@ -74,20 +90,22 @@ int main() {
                 }
                 break;
             }
-            case 4: {//Insert item
+            case 5: {//Get index of item
                 if (myList->pHead == NULL) {//если начальный эл-т отсутствует, то список пуст
                     printf("\nList is empty.\n");
                 } else {
-                    int index = 0;
-                    item *newItem = malloc(sizeof(item));
-                    printf("\nEnter index of element: ");
-                    scanf("%d", &index);
-                    insertItem(myList, newItem, index);
-                    printf("\nNew item was inserted successfully!\n");
+                    printf("\nEnter item address: ");
+                    scanf("%p", &listItem);
+                    int index = getIndex(myList, listItem);
+                    if (index > -1) {
+                        printf("\nindex = %d\n", index);
+                    } else {
+                        printf("\nElement doesn't exist.\n");
+                    }
                 }
                 break;
             }
-            case 5: {//Remove item by index
+            case 6: {//Remove item by index
                 if (myList->pHead == NULL) {//если начальный эл-т отсутствует, то список пуст
                     printf("\nList is empty.\n");
                 } else {
@@ -102,7 +120,7 @@ int main() {
                 }
                 break;
             }
-            case 6: {//Delete item by index
+            case 7: {//Delete item by index
                 if (myList->pHead == NULL) {//если начальный эл-т отсутствует, то список пуст
                     printf("\nList is empty.\n");
                 } else {
@@ -113,7 +131,7 @@ int main() {
                 }
                 break;
             }
-            case 7: {//Clear list
+            case 8: {//Clear list
                 if (myList->pHead == NULL) {//если начальный эл-т отсутствует, то список пуст
                     printf("\nList is empty.\n");
                 } else {
@@ -121,7 +139,7 @@ int main() {
                 }
                 break;
             }
-            case 8: {//Exit
+            case 9: {//Exit
                 printf("Exit...");
                 if (myList != NULL) {
                     clearList(myList);
@@ -180,12 +198,13 @@ void printMenu() {
     printf("0. Add item to tail\n");
     printf("1. Show list\n");
     printf("2. Count items\n");
-    printf("3. Get item by index\n");
-    printf("4. Insert item\n");
-    printf("5. Remove item by index\n");
-    printf("6. Delete item by index\n");
-    printf("7. Clear list\n");
-    printf("8. Exit\n");
+    printf("3. Insert item\n");
+    printf("4. Get item by index\n");
+    printf("5. Get index of item\n");
+    printf("6. Remove item by index\n");
+    printf("7. Delete item by index\n");
+    printf("8. Clear list\n");
+    printf("9. Exit\n");
     printf(">");
 }
 
@@ -278,6 +297,24 @@ void clearList(list *myList) {
     myList->pHead = NULL;
     myList->pTail = NULL;
     printf("\nList was cleared successfully!\n");
+}
+
+int getIndex(list *myList, item *listItem) {
+    int index = 0;
+    int boolVar = 0;
+    for (item *element = myList->pHead; element != NULL; element = element->pNext) {
+        if (listItem == element) {//если указатель текущего элемента равен необходимому
+            boolVar = 1;
+            break;
+        }
+        ++index;
+    }
+    if (boolVar == 1) {//если адрес найден
+        return index;
+    } else {
+        return -1;//если адрес был не найден
+    }
+
 }
 
 
