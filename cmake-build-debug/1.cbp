@@ -74,7 +74,13 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="D:/notWIN/universityDolgi/oop/1/declaration.h">
+			<Option target="1"/>
+		</Unit>
 		<Unit filename="D:/notWIN/universityDolgi/oop/1/main.c">
+			<Option target="1"/>
+		</Unit>
+		<Unit filename="D:/notWIN/universityDolgi/oop/1/realization.c">
 			<Option target="1"/>
 		</Unit>
 		<Unit filename="D:/notWIN/universityDolgi/oop/1/CMakeLists.txt">
