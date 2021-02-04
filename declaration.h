@@ -4,8 +4,18 @@
 
 #ifndef INC_1_DECLARATION_H
 #define INC_1_DECLARATION_H
+
 #include <stdio.h>
 #include <stdlib.h>
+
+typedef enum {
+    itBase,
+    itSurname,
+    itName,
+    itMiddleName,
+    itTelNumber,
+    itDate,
+} ePerson;
 
 typedef struct Item {
     struct Item *pPrev;
@@ -17,7 +27,6 @@ typedef struct List {
     struct Item *pHead;
 } list;
 
-//todo: getIndex
 void addListItem(list *myList, item *listItem);
 
 void printList(list *myList);
@@ -37,4 +46,5 @@ void clearList(list *myList);
 void insertItem(list *myList, item *newItem, int index);
 
 int getIndex(list *myList, item *listItem);
+
 #endif //INC_1_DECLARATION_H

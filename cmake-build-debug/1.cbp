@@ -83,6 +83,12 @@
 		<Unit filename="D:/notWIN/universityDolgi/oop/1/realization.c">
 			<Option target="1"/>
 		</Unit>
+		<Unit filename="D:/notWIN/universityDolgi/oop/1/subj.c">
+			<Option target="1"/>
+		</Unit>
+		<Unit filename="D:/notWIN/universityDolgi/oop/1/subj.h">
+			<Option target="1"/>
+		</Unit>
 		<Unit filename="D:/notWIN/universityDolgi/oop/1/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>

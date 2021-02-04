@@ -11,7 +11,7 @@ int main() {
     myList->pHead = 0;
     myList->pTail = 0;
     int variant = 0;
-    while (variant <= 8) {
+    while (variant != 9) {
         printMenu();
         scanf("%d", &variant);
         switch (variant) {
@@ -121,6 +121,7 @@ int main() {
                 break;
             }
             default:
+                printf("Variant not found.");
                 break;
         }
     }

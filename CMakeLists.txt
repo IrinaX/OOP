@@ -3,4 +3,4 @@ project(1 C)
 
 set(CMAKE_C_STANDARD 99)
 
-add_executable(1 main.c declaration.h realization.c)
+add_executable(1 main.c declaration.h realization.c subj.h subj.c)
