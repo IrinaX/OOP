@@ -53,20 +53,20 @@ int countListItems(list *myList) {
 void printMenu() {
     printf("\nWhat do you want to do?\n");
     printf("0. Add name\n");
-    printf("0. Add surname\n");
-    printf("0. Add middle name\n");
-    printf("0. Add email\n");
-    printf("0. Add telephone number\n");
-    printf("0. Add date\n");
-    printf("1. Show list\n");
-    printf("2. Count items\n");
-    printf("3. Insert item\n");
-    printf("4. Get item by index\n");
-    printf("5. Get index of item\n");
-    printf("6. Remove item by index\n");
-    printf("7. Delete item by index\n");
-    printf("8. Clear list\n");
-    printf("9. Exit\n");
+    printf("1. Add surname\n");
+    printf("2. Add middle name\n");
+    printf("3. Add email\n");
+    printf("4. Add telephone number\n");
+    printf("5. Add date\n");
+    printf("6. Show list\n");
+    printf("7. Count items\n");
+    printf("8. Insert item\n");
+    printf("9. Get item by index\n");
+    printf("10. Get index of item\n");
+    printf("11. Remove item by index\n");
+    printf("12. Delete item by index\n");
+    printf("13. Clear list\n");
+    printf("14. Exit\n");
     printf(">");
 }
 
