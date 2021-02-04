@@ -9,13 +9,14 @@
 #include <stdlib.h>
 
 typedef enum {
-    itBase,
+//    itBase,
     itSurname,
     itName,
     itMiddleName,
+    itEmail,
     itTelNumber,
     itDate,
-} ePerson;
+} eObjects;
 
 typedef struct Item {
     struct Item *pPrev;
@@ -26,6 +27,10 @@ typedef struct List {
     struct Item *pTail;
     struct Item *pHead;
 } list;
+
+list *createList();
+
+item *createItem();
 
 void addListItem(list *myList, item *listItem);
 

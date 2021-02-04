@@ -1,15 +1,8 @@
 #include "declaration.h"
 
 int main() {
-    //creating empty list
-    item *listItem = NULL;
-    listItem = malloc(sizeof(item));
-    listItem->pPrev = 0;
-    listItem->pNext = 0;
-    list *myList = NULL;
-    myList = malloc(sizeof(list));
-    myList->pHead = 0;
-    myList->pTail = 0;
+    item *listItem = createItem(); //creating empty list
+    list *myList = createList(); //creating empty item
     int variant = 0;
     while (variant != 9) {
         printMenu();

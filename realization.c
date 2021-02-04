@@ -3,6 +3,20 @@
 //
 #include "declaration.h"
 
+list *createList() {
+    list *myList = malloc(sizeof(list));//выделяем память
+    myList->pHead = 0;//обнуляем изначальные указалели
+    myList->pTail = 0;
+    return myList;
+}
+
+item *createItem() {
+    item *listItem = malloc(sizeof(item));
+    listItem->pPrev = 0;
+    listItem->pNext = 0;
+    return listItem;
+}
+
 /* голова - <0===> - хвост */
 void addListItem(list *myList, item *listItem) {
     if (myList->pHead == NULL) {//если нет элементов в списке
@@ -38,7 +52,12 @@ int countListItems(list *myList) {
 
 void printMenu() {
     printf("\nWhat do you want to do?\n");
-    printf("0. Add item to tail\n");
+    printf("0. Add name\n");
+    printf("0. Add surname\n");
+    printf("0. Add middle name\n");
+    printf("0. Add email\n");
+    printf("0. Add telephone number\n");
+    printf("0. Add date\n");
     printf("1. Show list\n");
     printf("2. Count items\n");
     printf("3. Insert item\n");
@@ -159,3 +178,6 @@ int getIndex(list *myList, item *listItem) {
     }
 
 }
+
+
+

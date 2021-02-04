@@ -10,14 +10,14 @@
 typedef struct {//стуктура базового уровня
     struct Item *pPrev;//наследование
     struct Item *pNext;
-
+    eObjects type;//тип данных (фамилия, имя и тд)
     int personnelNumber;//табельный номер
 } Base;
 
 typedef struct {//фамилия
     struct Item *pPrev;//наследование
     struct Item *pNext;
-
+    eObjects type;//тип данных (фамилия, имя и тд)
     int personnelNumber;
 
     char surname[30];
@@ -26,7 +26,7 @@ typedef struct {//фамилия
 typedef struct {//имя
     struct Item *pPrev;//наследование
     struct Item *pNext;
-
+    eObjects type;//тип данных (фамилия, имя и тд)
     int personnelNumber;
 
     char name[15];
@@ -35,16 +35,25 @@ typedef struct {//имя
 typedef struct {//отчество
     struct Item *pPrev;//наследование
     struct Item *pNext;
-
+    eObjects type;//тип данных (фамилия, имя и тд)
     int personnelNumber;
 
     char middleName[20];
 } MiddleName;
 
+typedef struct {//отчество
+    struct Item *pPrev;//наследование
+    struct Item *pNext;
+    eObjects type;//тип данных (фамилия, имя и тд)
+    int personnelNumber;
+
+    char email[30];
+} Email;
+
 typedef struct {//тел номер
     struct Item *pPrev;//наследование
     struct Item *pNext;
-
+    eObjects type;//тип данных (фамилия, имя и тд)
     int personnelNumber;
 
     char telNumber[20];
@@ -54,7 +63,7 @@ typedef struct {//тел номер
 typedef struct {//дата с доп информацией
     struct Item *pPrev;//наследование
     struct Item *pNext;
-
+    eObjects type;//тип данных (фамилия, имя и тд)
     int personnelNumber;
 
     int day;
@@ -62,4 +71,6 @@ typedef struct {//дата с доп информацией
     int year;
     char description[100];
 } Date;
+
+Base * createObject(eObjects type);
 #endif //INC_1_SUBJ_H
