@@ -1,7 +1,7 @@
 //
 // Created by IRA on 03.02.2021.
 //
-#include "declaration.h"
+#include "list.h"
 
 list *createList() {
     list *myList = malloc(sizeof(list));//выделяем память

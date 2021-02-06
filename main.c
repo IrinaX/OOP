@@ -1,4 +1,4 @@
-#include "declaration.h"
+#include "list.h"
 #include "subj.h"
 
 int main() {
@@ -8,41 +8,41 @@ int main() {
     while (variant != 14) {
         printMenu();
         scanf("%d", &variant);
-        switch (variant) { //todo: упростить switch
+        switch (variant) {
             case 0: { //Add item to tail
                 listItem = createObject(itName);//создаем обьект типа itName
                 addListItem(myList, (item *)listItem);//добавляем в список
-                printf("\nItem was added successfully!\n");
+                printf("\nName was added successfully!\n");
                 break;
             }
             case 1: { //Add item to tail
                 listItem = createObject(itSurname);//создаем обьект типа itSurname
                 addListItem(myList, (item *)listItem);//добавляем в список
-                printf("\nItem was added successfully!\n");
+                printf("\nSurname was added successfully!\n");
                 break;
             }
             case 2: { //Add item to tail
                 listItem = createObject(itMiddleName);//создаем обьект типа itMiddleName
                 addListItem(myList, (item *)listItem);//добавляем в список
-                printf("\nItem was added successfully!\n");
+                printf("\nMiddleName was added successfully!\n");
                 break;
             }
             case 3: { //Add item to tail
                 listItem = createObject(itEmail);//создаем обьект типа itEmail
                 addListItem(myList, (item *)listItem);//добавляем в список
-                printf("\nItem was added successfully!\n");
+                printf("\nEmail was added successfully!\n");
                 break;
             }
             case 4: { //Add item to tail
                 listItem = createObject(itTelNumber);//создаем обьект типа itTelNumber
                 addListItem(myList, (item *)listItem);//добавляем в список
-                printf("\nItem was added successfully!\n");
+                printf("\nTelNumber was added successfully!\n");
                 break;
             }
             case 5: { //Add item to tail
                 listItem = createObject(itDate);//создаем обьект типа itDate
                 addListItem(myList, (item *)listItem);//добавляем в список
-                printf("\nItem was added successfully!\n");
+                printf("\nDate was added successfully!\n");
                 break;
             }
             case 6: {//Show list

@@ -40,3 +40,83 @@ Base *createObject(eObjects type) {//создаем элемент с опред
     }
     return pCreatedObject;
 }
+
+void inputData(Base *pCreatedObj) {
+    if (pCreatedObj) {
+        switch (pCreatedObj->type) {
+            case itName: {
+                break;
+            }
+            case itSurname: {
+                break;
+            }
+            case itMiddleName: {
+                break;
+            }
+            case itEmail: {
+                break;
+            }
+            case itTelNumber: {
+                break;
+            }
+            case itDate: {
+                break;
+            }
+            default: {
+                printf("\nUndefined object.\n");
+                break;
+            }
+        }
+    }
+}
+
+void inputBase(Base *pBase) {
+    printf("\nEnter personnel number: ");
+    scanf("%d", &(pBase->personnelNumber));
+}
+
+void inputName(Name *pName) {
+    inputBase((Base *) pName);
+    printf("\nEnter name (max 15 symbols): ");
+    scanf("%s", pName->name);
+}
+
+void inputSurname(Surname *pSurname) {
+    inputBase((Base *) pSurname);
+    printf("\nEnter surname (max 30 symbols): ");
+    scanf("%s", pSurname->surname);
+}
+
+void inputMiddleName(MiddleName *pMiddleName) {
+    inputBase((Base *) pMiddleName);
+    printf("\nEnter middle name (max 20 symbols): ");
+    scanf("%s", pMiddleName->middleName);
+}
+
+void inputEmail(Email *pEmail) {
+    inputBase((Base *) pEmail);
+    printf("\nEnter email (max 30 symbols): ");
+    scanf("%s", pEmail->email);
+}
+
+void inputTelNumber(TelNumber *pTelNumber) {
+    inputBase((Base *) pTelNumber);
+    printf("\nEnter telephone number (max 20 symbols): ");
+    scanf("%s", pTelNumber->telNumber);
+    printf("\nEnter description (max 100 symbols): ");
+    scanf("%s", pTelNumber->description);
+}
+
+void inputDate(Date *pDate) {
+    inputBase((Base *) pDate);
+    printf("\nEnter day: ");
+    scanf("%d", &(pDate->day));
+    printf("\nEnter month: ");
+    scanf("%d", &(pDate->month));
+    printf("\nEnter year: ");
+    scanf("%d", &(pDate->year));
+    printf("\nEnter description (max 100 symbols): ");
+    scanf("%s", pDate->description);
+}
+
+

@@ -2,8 +2,8 @@
 // Created by IRA on 03.02.2021.
 //
 
-#ifndef INC_1_DECLARATION_H
-#define INC_1_DECLARATION_H
+#ifndef INC_1_LIST_H
+#define INC_1_LIST_H
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -52,4 +52,4 @@ void insertItem(list *myList, item *newItem, int index);
 
 int getIndex(list *myList, item *listItem);
 
-#endif //INC_1_DECLARATION_H
+#endif //INC_1_LIST_H

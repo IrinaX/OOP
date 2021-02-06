@@ -5,7 +5,7 @@
 #ifndef INC_1_SUBJ_H
 #define INC_1_SUBJ_H
 
-#include "declaration.h"
+#include "list.h"
 
 typedef struct {//стуктура базового уровня
     struct Item *pPrev;//наследование
@@ -72,5 +72,23 @@ typedef struct {//дата с доп информацией
     char description[100];
 } Date;
 
-Base * createObject(eObjects type);
+Base *createObject(eObjects type);
+
+void inputData(Base *pCreatedObj);
+
+void inputBase(Base *pBase);
+
+void inputName(Name *pName);
+
+void inputSurname(Surname *pSurname);
+
+void inputMiddleName(MiddleName *pMiddleName);
+
+void inputEmail(Email *pEmail);
+
+void inputTelNumber(TelNumber *pTelNumber);
+
+void inputDate(Date *pDate);
+
+
 #endif //INC_1_SUBJ_H
