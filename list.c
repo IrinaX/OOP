@@ -60,13 +60,11 @@ void printMenu() {
     printf("5. Add date\n");
     printf("6. Show list\n");
     printf("7. Count items\n");
-    printf("8. Insert item\n");
-    printf("9. Get item by index\n");
-    printf("10. Get index of item\n");
-    printf("11. Remove item by index\n");
-    printf("12. Delete item by index\n");
-    printf("13. Clear list\n");
-    printf("14. Exit\n");
+    printf("8. Get item by index\n");
+    printf("9. Remove item by index\n");
+    printf("10. Delete item by index\n");
+    printf("11. Clear list\n");
+    printf("12. Exit\n");
     printf(">");
 }
 
@@ -119,7 +117,6 @@ item *removeItem(list *myList, int index) {
     if (myList->pTail == myList->pHead) {//если в списке остался один элемент
         myList->pTail = NULL;//хвост обнуляем
         myList->pHead = NULL;//голову тоже
-//        printf("\nList is empty.\n");
         return element;
     }
     if (element->pPrev == NULL) {//если удалить надо начальный элемент(голову) (индекс 0)
@@ -151,7 +148,7 @@ void deleteItem(list *myList, int index) {
 
 void clearList(list *myList) {
     item *element = myList->pHead;//определяем начальный элемент списка для цикла
-    while (element != NULL) {
+    while (element) {
         item *nextItem = element->pNext;//сохраняем указатель на следующий элемент
         free(element);//освобождаем память
         element = nextItem;//присваиваем текущему указателю сохраненный

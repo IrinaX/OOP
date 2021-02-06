@@ -30,8 +30,10 @@ Base *createObject(eObjects type) {//создаем элемент с опред
             pCreatedObject = malloc(sizeof(Date));
             break;
         }
-        default:
+        default: {
+            printf("\nUndefined object.\n");
             break;
+        }
     }
     if (pCreatedObject) {
         pCreatedObject->pNext = 0;//обнуляем указатели
@@ -45,21 +47,27 @@ void inputData(Base *pCreatedObj) {
     if (pCreatedObj) {
         switch (pCreatedObj->type) {
             case itName: {
+                inputName((Name *) pCreatedObj);
                 break;
             }
             case itSurname: {
+                inputSurname((Surname *) pCreatedObj);
                 break;
             }
             case itMiddleName: {
+                inputMiddleName((MiddleName *) pCreatedObj);
                 break;
             }
             case itEmail: {
+                inputEmail((Email *) pCreatedObj);
                 break;
             }
             case itTelNumber: {
+                inputTelNumber((TelNumber *) pCreatedObj);
                 break;
             }
             case itDate: {
+                inputDate((Date *) pCreatedObj);
                 break;
             }
             default: {
@@ -67,6 +75,8 @@ void inputData(Base *pCreatedObj) {
                 break;
             }
         }
+    } else {
+        printf("\nUndefined pCreatedObj (func: void inputData(Base *pCreatedObj)).\n");
     }
 }
 
@@ -117,6 +127,105 @@ void inputDate(Date *pDate) {
     scanf("%d", &(pDate->year));
     printf("\nEnter description (max 100 symbols): ");
     scanf("%s", pDate->description);
+}
+
+void printItem(Base *pItem) {
+    if (pItem) {
+        switch (pItem->type) {
+            case itName: {
+                printName((Name *) pItem);
+                break;
+            }
+            case itSurname: {
+                printSurname((Surname *) pItem);
+                break;
+            }
+            case itMiddleName: {
+                printMiddleName((MiddleName *) pItem);
+                break;
+            }
+            case itEmail: {
+                printEmail((Email *) pItem);
+                break;
+            }
+            case itTelNumber: {
+                printTelNumber((TelNumber *) pItem);
+                break;
+            }
+            case itDate: {
+                printDate((Date *) pItem);
+                break;
+            }
+            default: {
+                printf("\nUndefined object.\n");
+                break;
+            }
+        }
+    } else {
+        printf("\nUndefined pItem (func: void printItem(Base *pItem)).\n");
+    }
+}
+
+void printBase(Base *pBase) {
+    printf("Personnel number: %d\n", pBase->personnelNumber);
+    printf("Pointer: %p prev: %p next: %p\n", pBase, pBase->pPrev, pBase->pNext);
+}
+
+void printName(Name *pName) {
+    printf("\nType: Name\n");
+    printBase((Base *) pName);
+    printf("Name: %s\n", pName->name);
+}
+
+void printSurname(Surname *pSurname) {
+    printf("\nType: Surname\n");
+    printBase((Base *) pSurname);
+    printf("Surname: %s\n", pSurname->surname);
+}
+
+void printMiddleName(MiddleName *pMiddleName) {
+    printf("\nType: MiddleName\n");
+    printBase((Base *) pMiddleName);
+    printf("Middle name: %s\n", pMiddleName->middleName);
+}
+
+void printEmail(Email *pEmail) {
+    printf("\nType: Email\n");
+    printBase((Base *) pEmail);
+    printf("Email: %s\n", pEmail->email);
+}
+
+void printTelNumber(TelNumber *pTelNumber) {
+    printf("\nType: TelNumber\n");
+    printBase((Base *) pTelNumber);
+    printf("Telephone number: %s\n", pTelNumber->telNumber);
+    printf("Description: %s\n", pTelNumber->description);
+}
+
+void printDate(Date *pDate) {
+    printf("\nType: Date\n");
+    printBase((Base *) pDate);
+    printf("Day: %d\n", pDate->day);
+    printf("Month: %d\n", pDate->month);
+    printf("Year: %d\n", pDate->year);
+    printf("Description: %s\n", pDate->description);
+}
+
+void printNewList(list *pList) {
+    int i = 0;
+    if (pList) {
+        if (pList->pHead) {
+            for (item *pItem = pList->pHead; pItem != NULL; pItem = pItem->pNext) {
+                printf("\nIndex: %d", i);
+                printItem((Base *) pItem);
+                ++i;
+            }
+        } else {
+            printf("\nList is empty.\n");
+        }
+    } else {
+        printf("\nUndefined pointer pList. Func: void printNewList(list *pList)\n");
+    }
 }
 
 

@@ -91,4 +91,25 @@ void inputTelNumber(TelNumber *pTelNumber);
 void inputDate(Date *pDate);
 
 
+void printBase(Base *pBase);
+
+void printItem(Base *pItem);
+
+void printName(Name *pName);
+
+void printSurname(Surname *pSurname);
+
+void printMiddleName(MiddleName *pMiddleName);
+
+void printEmail(Email *pEmail);
+
+void printTelNumber(TelNumber *pTelNumber);
+
+void printDate(Date *pDate);
+
+void printNewList(list *pList);
+
+
+
+
 #endif //INC_1_SUBJ_H
