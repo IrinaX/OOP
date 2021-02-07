@@ -60,11 +60,12 @@ void printMenu() {
     printf("5. Add date\n");
     printf("6. Show list\n");
     printf("7. Count items\n");
-    printf("8. Get item by index\n");
-    printf("9. Remove item by index\n");
-    printf("10. Delete item by index\n");
-    printf("11. Clear list\n");
-    printf("12. Exit\n");
+    printf("8. Sort list by surname\n");
+    printf("9. Get item by index\n");
+    printf("10. Remove item by index\n");
+    printf("11. Delete item by index\n");
+    printf("12. Clear list\n");
+    printf("13. Exit\n");
     printf(">");
 }
 

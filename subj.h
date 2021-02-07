@@ -6,6 +6,7 @@
 #define INC_1_SUBJ_H
 
 #include "list.h"
+#include <string.h>
 
 typedef struct {//стуктура базового уровня
     struct Item *pPrev;//наследование
@@ -109,7 +110,7 @@ void printDate(Date *pDate);
 
 void printNewList(list *pList);
 
-
-
+void sortBySurname(list *pList);
+void swipeItems(list *pList, int index);
 
 #endif //INC_1_SUBJ_H

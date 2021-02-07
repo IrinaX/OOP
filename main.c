@@ -5,49 +5,49 @@ int main() {
     list *myList = createList(); //creating empty list
     Base *listItem; //указатель на объект класса Base
     int variant = 0;
-    while (variant != 12) {
+    while (variant != 13) {
         printMenu();
         scanf("%d", &variant);
         switch (variant) {
             case 0: { //Add item to tail
                 listItem = createObject(itName);//создаем обьект типа itName
                 inputData(listItem);//ввод данных с клавиатуры
-                addListItem(myList, (item *)listItem);//добавляем в список
+                addListItem(myList, (item *) listItem);//добавляем в список
                 printf("\nName was added successfully!\n");
                 break;
             }
             case 1: { //Add item to tail
                 listItem = createObject(itSurname);//создаем обьект типа itSurname
                 inputData(listItem);//ввод данных с клавиатуры
-                addListItem(myList, (item *)listItem);//добавляем в список
+                addListItem(myList, (item *) listItem);//добавляем в список
                 printf("\nSurname was added successfully!\n");
                 break;
             }
             case 2: { //Add item to tail
                 listItem = createObject(itMiddleName);//создаем обьект типа itMiddleName
                 inputData(listItem);//ввод данных с клавиатуры
-                addListItem(myList, (item *)listItem);//добавляем в список
+                addListItem(myList, (item *) listItem);//добавляем в список
                 printf("\nMiddleName was added successfully!\n");
                 break;
             }
             case 3: { //Add item to tail
                 listItem = createObject(itEmail);//создаем обьект типа itEmail
                 inputData(listItem);//ввод данных с клавиатуры
-                addListItem(myList, (item *)listItem);//добавляем в список
+                addListItem(myList, (item *) listItem);//добавляем в список
                 printf("\nEmail was added successfully!\n");
                 break;
             }
             case 4: { //Add item to tail
                 listItem = createObject(itTelNumber);//создаем обьект типа itTelNumber
                 inputData(listItem);//ввод данных с клавиатуры
-                addListItem(myList, (item *)listItem);//добавляем в список
+                addListItem(myList, (item *) listItem);//добавляем в список
                 printf("\nTelNumber was added successfully!\n");
                 break;
             }
             case 5: { //Add item to tail
                 listItem = createObject(itDate);//создаем обьект типа itDate
                 inputData(listItem);//ввод данных с клавиатуры
-                addListItem(myList, (item *)listItem);//добавляем в список
+                addListItem(myList, (item *) listItem);//добавляем в список
                 printf("\nDate was added successfully!\n");
                 break;
             }
@@ -60,7 +60,16 @@ int main() {
                 printf("\namountOfItems = %d\n", amountOfItems);
                 break;
             }
-            case 8: {//Get item by index
+            case 8: {//Sort list by surname
+                if (myList->pHead) {//если начальный эл-т отсутствует, то список пуст
+                    sortBySurname(myList);
+                    printf("\nList was sorted successfully.\n");
+                } else {
+                    printf("\nList is empty.\n");
+                }
+                break;
+            }
+            case 9: {//Get item by index
                 if (myList->pHead) {//если начальный эл-т отсутствует, то список пуст
                     int index = 0;
                     printf("\nEnter index of element: ");
@@ -75,7 +84,7 @@ int main() {
                 }
                 break;
             }
-            case 9: {//Remove item by index
+            case 10: {//Remove item by index
                 if (myList->pHead == NULL) {//если начальный эл-т отсутствует, то список пуст
                     printf("\nList is empty.\n");
                 } else {
@@ -90,7 +99,7 @@ int main() {
                 }
                 break;
             }
-            case 10: {//Delete item by index
+            case 11: {//Delete item by index
                 if (myList->pHead == NULL) {//если начальный эл-т отсутствует, то список пуст
                     printf("\nList is empty.\n");
                 } else {
@@ -101,7 +110,7 @@ int main() {
                 }
                 break;
             }
-            case 11: {//Clear list
+            case 12: {//Clear list
                 if (myList->pHead == NULL) {//если начальный эл-т отсутствует, то список пуст
                     printf("\nList is empty.\n");
                 } else {
@@ -109,7 +118,7 @@ int main() {
                 }
                 break;
             }
-            case 12: {//Exit
+            case 13: {//Exit
                 printf("Exit...");
                 return 0;
             }
@@ -118,6 +127,7 @@ int main() {
                 break;
         }
     }
+
     return 0;
 }
 

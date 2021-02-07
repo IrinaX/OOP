@@ -228,4 +228,74 @@ void printNewList(list *pList) {
     }
 }
 
+void sortBySurname(list *pList) {
+    int amountOfItems = countListItems(pList);
+    list *pSurnameList = createList();
+    list *pOtherDataList = createList();
+    if (amountOfItems == 0 || amountOfItems == 1)
+        return;
+    for (int i = amountOfItems; i > 0; --i) {
+        for (int j = 0; j < i; ++j) {
+            if (((Base *) getItem(pList, j))->type == itSurname) {
+                addListItem(pSurnameList, getItem(pList, j));
+//                item *removedItem = removeItem(pList, j);
+//                insertItem(pList, removedItem, 0);
+            } else{
+                addListItem(pOtherDataList, getItem(pList, j));
+            }
+        }
+    }
+    int amountOfSurname = countListItems(pSurnameList);
+    for (int i = amountOfSurname - 1; i > 0; --i) {
+        for (int j = 0; j < i; ++j) {
+            if (((Base *) getItem(pSurnameList, j + 1))) {
+                if (strcmp(((Surname *) getItem(pSurnameList, j))->surname,
+                           ((Surname *) getItem(pSurnameList, j + 1))->surname) > 0) {
+                    swipeItems(pSurnameList, j);
+                }
+            }
+        }
+    }
+    int savedPersonnelNumber;
+    int savedIndex;
+//    for (int i = 0; i < amountOfItems; ++i) {
+//        if (((Base *) getItem(pList, i))->type == itSurname) {
+//            savedPersonnelNumber = ((Base *) getItem(pList, i))->personnelNumber;
+//            savedIndex = i;
+//            for (int j = i; j < amountOfItems - 1; ++j) {
+//                if (((Base *) getItem(pList, j))->type != itSurname) {
+//                    if (((Base *) getItem(pList, j))->personnelNumber == savedPersonnelNumber){
+//                        item *removedItem = removeItem(pList, j);
+//                        ++savedIndex;
+//                        insertItem(pList, removedItem, savedIndex);
+//                    }
+//                }
+//            }
+//        }
+//    }
+}
+    void swipeItems(list *pList, int index) {
+        item *currItem = getItem(pList, index);
+        item *prevItem = currItem->pPrev;
+        item *nextItem = currItem->pNext;
 
+        if (currItem == pList->pHead) {
+            pList->pHead = nextItem;
+        }
+        if (nextItem == pList->pTail) {
+            pList->pTail = currItem;
+        }
+
+        if (prevItem != NULL) {
+            prevItem->pNext = nextItem;
+        }
+
+        if (nextItem->pNext != NULL) {
+            nextItem->pNext->pPrev = currItem;
+        }
+
+        currItem->pNext = nextItem->pNext;
+        currItem->pPrev = nextItem;
+        nextItem->pNext = currItem;
+        nextItem->pPrev = prevItem;
+    }
