@@ -111,6 +111,12 @@ void printDate(Date *pDate);
 void printNewList(list *pList);
 
 void sortBySurname(list *pList);
+
 void swipeItems(list *pList, int index);
+
+
+void searchKeyWordInTelNumberDescription(list *pList);
+
+void searchKeyWordInDateDescription(list *pList);
 
 #endif //INC_1_SUBJ_H

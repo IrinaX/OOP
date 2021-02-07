@@ -61,11 +61,12 @@ void printMenu() {
     printf("6. Show list\n");
     printf("7. Count items\n");
     printf("8. Sort list by surname\n");
-    printf("9. Get item by index\n");
-    printf("10. Remove item by index\n");
-    printf("11. Delete item by index\n");
-    printf("12. Clear list\n");
-    printf("13. Exit\n");
+    printf("9. Search by key word\n");
+    printf("10. Get item by index\n");
+    printf("11. Remove item by index\n");
+    printf("12. Delete item by index\n");
+    printf("13. Clear list\n");
+    printf("14. Exit\n");
     printf(">");
 }
 
@@ -174,7 +175,6 @@ int getIndex(list *myList, item *listItem) {
     } else {
         return -1;//если адрес был не найден
     }
-
 }
 
 

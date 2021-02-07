@@ -5,7 +5,7 @@ int main() {
     list *myList = createList(); //creating empty list
     Base *listItem; //указатель на объект класса Base
     int variant = 0;
-    while (variant != 13) {
+    while (variant != 14) {
         printMenu();
         scanf("%d", &variant);
         switch (variant) {
@@ -69,7 +69,18 @@ int main() {
                 }
                 break;
             }
-            case 9: {//Get item by index
+            case 9:{//Search by key word
+                if (myList->pHead){
+                    char keyWord[20];
+                    printf("\nEnter a key word (max 20 symbols): ");
+                    scanf("%s", keyWord);
+
+                } else{
+                    printf("\nList is empty.\n");
+                }
+                break;
+            }
+            case 10: {//Get item by index
                 if (myList->pHead) {//если начальный эл-т отсутствует, то список пуст
                     int index = 0;
                     printf("\nEnter index of element: ");
@@ -84,7 +95,7 @@ int main() {
                 }
                 break;
             }
-            case 10: {//Remove item by index
+            case 11: {//Remove item by index
                 if (myList->pHead == NULL) {//если начальный эл-т отсутствует, то список пуст
                     printf("\nList is empty.\n");
                 } else {
@@ -99,7 +110,7 @@ int main() {
                 }
                 break;
             }
-            case 11: {//Delete item by index
+            case 12: {//Delete item by index
                 if (myList->pHead == NULL) {//если начальный эл-т отсутствует, то список пуст
                     printf("\nList is empty.\n");
                 } else {
@@ -110,7 +121,7 @@ int main() {
                 }
                 break;
             }
-            case 12: {//Clear list
+            case 13: {//Clear list
                 if (myList->pHead == NULL) {//если начальный эл-т отсутствует, то список пуст
                     printf("\nList is empty.\n");
                 } else {
@@ -118,7 +129,7 @@ int main() {
                 }
                 break;
             }
-            case 13: {//Exit
+            case 14: {//Exit
                 printf("Exit...");
                 return 0;
             }
