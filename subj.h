@@ -115,8 +115,6 @@ void sortBySurname(list *pList);
 void swipeItems(list *pList, int index);
 
 
-void searchKeyWordInTelNumberDescription(list *pList);
-
-void searchKeyWordInDateDescription(list *pList);
+void searchKeyWord(list *pList, char keyWord[20]);
 
 #endif //INC_1_SUBJ_H

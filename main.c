@@ -74,7 +74,7 @@ int main() {
                     char keyWord[20];
                     printf("\nEnter a key word (max 20 symbols): ");
                     scanf("%s", keyWord);
-
+                    searchKeyWord(myList, keyWord);
                 } else{
                     printf("\nList is empty.\n");
                 }

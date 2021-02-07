@@ -114,7 +114,8 @@ void inputTelNumber(TelNumber *pTelNumber) {
     printf("\nEnter telephone number (max 20 symbols): ");
     scanf("%s", pTelNumber->telNumber);
     printf("\nEnter description (max 100 symbols): ");
-    scanf("%s", pTelNumber->description);
+    fflush(stdin);
+    fgets(pTelNumber->description, 99, stdin);
 }
 
 void inputDate(Date *pDate) {
@@ -126,7 +127,8 @@ void inputDate(Date *pDate) {
     printf("\nEnter year: ");
     scanf("%d", &(pDate->year));
     printf("\nEnter description (max 100 symbols): ");
-    scanf("%s", pDate->description);
+    fflush(stdin);
+    fgets(pDate->description, 99, stdin);
 }
 
 void printItem(Base *pItem) {
@@ -296,6 +298,26 @@ void swipeItems(list *pList, int index) {//меняем местами элем�
     nextItem->pPrev = prevItem;
 }
 
-void searchKeyWordInTelNumberDescription(list *pList) {
-
+void searchKeyWord(list *pList, char keyWord[20]) {
+    int amountOfItems = countListItems(pList);
+    int amountOfMatches = 0;
+    for (int i = 0; i < amountOfItems; ++i) {
+        if (((Base *) getItem(pList, i))->type == itTelNumber) {
+            TelNumber *telNumItem = ((TelNumber *) getItem(pList, i));
+            if (strstr(telNumItem->description, keyWord) != NULL) {
+                printTelNumber(telNumItem);
+                amountOfMatches++;
+            }
+        }
+        if (((Base *) getItem(pList, i))->type == itDate) {
+            Date *dateItem = ((Date *) getItem(pList, i));
+            if (strstr(dateItem->description, keyWord) != NULL) {
+                printDate(dateItem);
+                amountOfMatches++;
+            }
+        }
+    }
+    if (amountOfMatches == 0) {
+        printf("\nNo matches found.\n");
+    }
 }
